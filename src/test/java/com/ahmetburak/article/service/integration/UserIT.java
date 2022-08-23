@@ -24,7 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class UserIT {
 
-
     @Autowired
     private MockMvc mockMvc;
 
@@ -40,7 +39,7 @@ class UserIT {
 
         UserDTO userDTO = new UserDTO();
         userDTO.setFullName("Test User Name Surname");
-        userDTO.setUsername("testuser");
+        userDTO.setUsername("test_user");
         userDTO.setPassword("123");
         userDTO.setRoles(roles);
 

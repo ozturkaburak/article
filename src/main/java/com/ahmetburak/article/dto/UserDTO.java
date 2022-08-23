@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -25,7 +24,6 @@ public class UserDTO implements Base {
     private String username;
 
     @NotNull
-//    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String password;
 
     private Set<RoleDTO> roles;
@@ -34,14 +32,4 @@ public class UserDTO implements Base {
         this.roles = new HashSet<>();
     }
 
-    public void addRole(RoleDTO roleDTO) {
-        if (Objects.isNull(roleDTO)) {
-            return;
-        }
-        //if role map is empty or roleDTO is not in the list, add the roleDTO into the role map
-        if (this.roles.isEmpty() || this.roles.stream().noneMatch(roleDTO1 -> roleDTO1.getName().equals(roleDTO.getName()))) {
-            this.roles.add(roleDTO);
-        }
-
-    }
 }

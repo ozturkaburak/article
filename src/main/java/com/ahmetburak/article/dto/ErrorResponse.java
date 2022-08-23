@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by ahmetburakozturk on 21.08.2022
@@ -21,13 +19,6 @@ public class ErrorResponse {
     private final String message;
     private String stackTrace;
     private List<ValidationError> errors;
-
-    public void addValidationError(String field, String message) {
-        if (Objects.isNull(errors)) {
-            errors = new ArrayList<>();
-        }
-        errors.add(new ValidationError(field, message));
-    }
 
     private record ValidationError(String field, String message) {
     }
